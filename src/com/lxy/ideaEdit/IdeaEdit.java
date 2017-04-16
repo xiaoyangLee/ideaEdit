@@ -98,7 +98,8 @@ public class IdeaEdit extends JFrame {
 		JMenuItem menuItem_3 = new JMenuItem("\u65B0\u5EFA\u6587\u4EF6");
 		menuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				//æœ‰äº›åŠŸèƒ½å¹¶æ²¡æœ‰åšå…¨ã€‚
+				Jpanel.showMessageDialog("this function didn't implement");
 			}
 		});
 		menu.add(menuItem_3);
@@ -187,7 +188,7 @@ public class IdeaEdit extends JFrame {
 		JMenuItem menuItem_12 = new JMenuItem("\u5B8B\u4F53 20");
 		menuItem_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textEditArea.setFont(new java.awt.Font("ËÎÌå", 1, 20));
+				textEditArea.setFont(new java.awt.Font("å®‹ä½“", 1, 20));
 			}
 		});
 		menu_5.add(menuItem_12);
@@ -323,20 +324,20 @@ public class IdeaEdit extends JFrame {
 		});
 		menuItem_19.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
 		popupMenu.add(menuItem_19);
-		// ÉèÖÃJFrame¾ÓÖĞÏÔÊ¾
+		// è®¾ç½®JFrameå±…ä¸­æ˜¾ç¤º
 		this.setLocationRelativeTo(null);
 	}
-	// ÉèÖÃÎÄ±¾ÑÕÉ«
+	// è®¾ç½®æ–‡æœ¬é¢œè‰²
 
 	@SuppressWarnings("static-access")
 	private void setTextColor() {
 		// TODO Auto-generated method stub
 		JColorChooser chooser = new JColorChooser();
 		Color color = textEditArea.getForeground();
-		textEditArea.setForeground(chooser.showDialog(textEditArea, "Ñ¡Ôñ×ÖÌåÑÕÉ«", color));
+		textEditArea.setForeground(chooser.showDialog(textEditArea, "é€‰æ‹©å­—ä½“é¢œè‰²", color));
 	}
 
-	// ±£´æÎÄ¼ş²Ù×÷
+	// ä¿å­˜æ–‡ä»¶æ“ä½œ
 	private void saveFile() {
 		// TODO Auto-generated method stub
 		if (filepath == null || filename == "") {
@@ -348,7 +349,7 @@ public class IdeaEdit extends JFrame {
 				fileWriter = new FileWriter(filepath);
 				BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-				// °ÑÎÄ±¾¿òµÄÄÚÈİÈ«²¿Ğ´µ½ÎÄ¼ş
+				// æŠŠæ–‡æœ¬æ¡†çš„å†…å®¹å…¨éƒ¨å†™åˆ°æ–‡ä»¶
 				fileWriter.write(textEditArea.getText());
 				fileWriter.close();
 				bufferedWriter.close();
@@ -363,20 +364,20 @@ public class IdeaEdit extends JFrame {
 		}
 	}
 
-	// Áí´æÎª²Ù×÷
+	// å¦å­˜ä¸ºæ“ä½œ
 	private void saveFileAs() {
 		// TODO Auto-generated method stub
 		JFileChooser chooser = new JFileChooser();
-		chooser.setFileFilter(new Textfilefilter(".txt", "ÎÄ±¾ÎÄ¼ş(*.txt)"));
+		chooser.setFileFilter(new Textfilefilter(".txt", "æ–‡æœ¬æ–‡ä»¶(*.txt)"));
 		chooser.setFileFilter(new Textfilefilter(".xml", "xml(*.xml)"));
 		chooser.setFileFilter(new Textfilefilter(".c", "c(*.c)"));
-		int result = chooser.showSaveDialog(this); // ´ò¿ª¡°Áí´æÎªÎÄ¼ş¡±¶Ô»°¿ò
+		int result = chooser.showSaveDialog(this); // æ‰“å¼€â€œå¦å­˜ä¸ºæ–‡ä»¶â€å¯¹è¯æ¡†
 		if (result == JFileChooser.APPROVE_OPTION) {
 			File file = chooser.getSelectedFile();
 			this.setTitle(file.getName());
 			this.filename = file.getName();
 			this.filepath = file.getPath();
-			// °ÑÎÄ±¾¿òµÄÄÚÈİĞ´Èëµ½ÎÄ¼şÖĞ
+			// æŠŠæ–‡æœ¬æ¡†çš„å†…å®¹å†™å…¥åˆ°æ–‡ä»¶ä¸­
 			FileWriter fileWriter;
 			try {
 				fileWriter = new FileWriter(file);
@@ -396,11 +397,11 @@ public class IdeaEdit extends JFrame {
 
 	}
 
-	// ´ò¿ªÎÄ¼ş²Ù×÷
+	// æ‰“å¼€æ–‡ä»¶æ“ä½œ
 	private void openfile() {
 		// TODO Auto-generated method stub
 		JFileChooser fileChooser = new JFileChooser();
-		Textfilefilter txtfilefilter = new Textfilefilter(".txt", "ÎÄ±¾ÎÄ¼ş(*.txt)");
+		Textfilefilter txtfilefilter = new Textfilefilter(".txt", "æ–‡æœ¬æ–‡ä»¶(*.txt)");
 		Textfilefilter xmlfilefilter = new Textfilefilter(".xml", "xml(*.xml)");
 		Textfilefilter cfilefilter = new Textfilefilter(".c", "c(*.c)");
 		Textfilefilter cplusfilefilter = new Textfilefilter(".cpp", "cpp(*.cpp)");
@@ -409,8 +410,8 @@ public class IdeaEdit extends JFrame {
 		fileChooser.addChoosableFileFilter(cfilefilter);
 		fileChooser.addChoosableFileFilter(cplusfilefilter);
 		fileChooser.setFileFilter(txtfilefilter);
-		int result = fileChooser.showOpenDialog(this);// ´ò¿ª¡°´ò¿ªÎÄ¼ş¡±¶Ô»°¿ò
-		// ½«Ñ¡ÔñµÄFile¶ÔÏó¸³Öµ¸øresult
+		int result = fileChooser.showOpenDialog(this);// æ‰“å¼€â€œæ‰“å¼€æ–‡ä»¶â€å¯¹è¯æ¡†
+		// å°†é€‰æ‹©çš„Fileå¯¹è±¡èµ‹å€¼ç»™result
 		if (result == JFileChooser.APPROVE_OPTION) {
 			File file = fileChooser.getSelectedFile();
 
@@ -418,7 +419,7 @@ public class IdeaEdit extends JFrame {
 			this.filepath = file.getPath();
 			this.filename = file.getName();
 			this.lblFileMsg.setText(this.filename.substring(filename.lastIndexOf(".") + 1) + " Source File ");
-			// ¶ÁÈëÎÄ¼şµÄÄÚÈİµ½ÎÄ±¾¿ò
+			// è¯»å…¥æ–‡ä»¶çš„å†…å®¹åˆ°æ–‡æœ¬æ¡†
 			FileReader fileReader;
 			try {
 				fileReader = new FileReader(file);
@@ -441,13 +442,13 @@ public class IdeaEdit extends JFrame {
 
 	}
 
-	// ÏÂ·½×´Ì¬À¸±ä»¯
+	// ä¸‹æ–¹çŠ¶æ€æ å˜åŒ–
 	private void editKeyPressPerform(KeyEvent e) {
 		// TODO Auto-generated method stub
-		this.lblRowMsg.setText("µ±Ç°×ÖÊı£º" + String.valueOf(textEditArea.getText().trim().length()));
-		this.lblWordCountMsg.setText("µ±Ç°ĞĞÊı£º" + String.valueOf(textEditArea.getLineCount()));
+		this.lblRowMsg.setText("å½“å‰å­—æ•°ï¼š" + String.valueOf(textEditArea.getText().trim().length()));
+		this.lblWordCountMsg.setText("å½“å‰è¡Œæ•°ï¼š" + String.valueOf(textEditArea.getLineCount()));
 	}
-	//ÏÔÊ¾ĞĞºÅ
+	//æ˜¾ç¤ºè¡Œå·
 	private void linecount(KeyEvent e) {
 		// TODO Auto-generated method stub
 			//this.textArea.setText((textEditArea.getLineCount()+"\r\n"));
@@ -473,16 +474,16 @@ public class IdeaEdit extends JFrame {
 		});
 	}
 
-	// ÍË³öÊÂ¼ş´¦Àí
+	// é€€å‡ºäº‹ä»¶å¤„ç†
 	private void QuitActionPerform(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Quit();
 	}
 
-	// ÍË³ö´¦Àí
+	// é€€å‡ºå¤„ç†
 	private void Quit() {
 		if (flag == true) {
-			int resp = JOptionPane.showConfirmDialog(null, "ÊÇ·ñÒª±£´æÎÄ¼ş²¢ÍË³ö£¿");
+			int resp = JOptionPane.showConfirmDialog(null, "æ˜¯å¦è¦ä¿å­˜æ–‡ä»¶å¹¶é€€å‡ºï¼Ÿ");
 			if (resp == JOptionPane.YES_OPTION) {
 				saveFile();
 				dispose();
@@ -498,7 +499,7 @@ public class IdeaEdit extends JFrame {
 }
 
 /**
- * ×Ô¶¨ÒåÎÄ¼ş¹ıÂËÆ÷
+ * è‡ªå®šä¹‰æ–‡ä»¶è¿‡æ»¤å™¨
  * 
  * @author xiaoyang
  *
